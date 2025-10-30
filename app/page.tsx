@@ -5,8 +5,8 @@ import { calculatePokemonNumber } from "./utils/pokemon-number";
 import Card from "./components/card";
 
 export default async function Home({ searchParams }: PokemonListPageProps) {
-  const params = await searchParams;
-  const currentPage = await Number(params.page) || 1;
+  const {page} = await searchParams;
+  const currentPage = await Number(page) || 1;
 
   const pokemonData = await getPokemonList(currentPage);
   const pokemonList = pokemonData?.results || [];

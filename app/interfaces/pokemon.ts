@@ -15,7 +15,7 @@ export interface PokemonListPageProps {
 }
 
 export interface PokemonDetailPageProps {
-    parameters: Promise<{
+    params: Promise<{
         id: string;
     }>;
 }

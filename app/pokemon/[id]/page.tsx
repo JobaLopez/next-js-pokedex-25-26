@@ -3,9 +3,8 @@ import { getPokemonById } from "@/app/utils/get-pokemon-by-id";
 import Image from "next/image";
 import Link from "next/link";
 
-export default async function Detail({ parameters }: PokemonDetailPageProps) {
-    const params = await parameters;
-    const id = params.id;
+export default async function Detail({ params }: PokemonDetailPageProps) {
+    const { id } = await params;
     const pokemonData = await getPokemonById(id);
 
     return (
