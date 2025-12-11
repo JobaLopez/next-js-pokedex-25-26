@@ -1,8 +1,8 @@
 'use client';
 import Link from "next/link";
-import { PaginationComponentProps } from "../interfaces/pokemon";
-import { getPaginationWindow } from "../utils/pagination.helper";
-import { activeClass, baseClass, ellipsisClass, normalClass, paginationWindowSize } from "../constants/listing.constants";
+import { PaginationComponentProps } from "../../interfaces/pokemon";
+import { getPaginationWindow } from "../../utils/pagination.helper";
+import { activeClass, baseClass, ellipsisClass, normalClass, paginationWindowSize } from "../../constants/listing.constants";
 
 export default function Pagination({ currentPage, totalPages }: PaginationComponentProps) {
     const pageNumbers = getPaginationWindow(currentPage, totalPages, paginationWindowSize);

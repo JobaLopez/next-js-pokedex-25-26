@@ -1,9 +1,8 @@
-import { Pokemon, PokemonListPageProps } from "./interfaces/pokemon";
+import { PokemonListPageProps } from "./interfaces/pokemon";
 import { getPokemonList } from "./utils/get-pokemon-list";
-import { calculatePokemonNumber } from "./utils/pokemon-number";
-import Card from "./components/card";
-import Pagination from "./components/pagination";
+import Pagination from "./components/home/pagination";
 import { pokemonPerPage } from "./constants/listing.constants";
+import PokemonGrid from "./components/home/pokemonGrid";
 
 export default async function Home({ searchParams }: PokemonListPageProps) {
   const { page } = await searchParams;
@@ -17,13 +16,7 @@ export default async function Home({ searchParams }: PokemonListPageProps) {
 
   return (
     <div className="container mx-auto p-7 max-w-7xl">
-      <div className="grid grid-cols-3 gap-4 justify-center items-center">
-        {
-          pokemonList.map((pokemon: Pokemon, index: number) => (
-            <Card pokemonIndex={calculatePokemonNumber(currentPage, index)} pokemonName={pokemon.name} key={index} />
-          ))
-        }
-      </div>
+      <PokemonGrid pokemonList={pokemonList} currentPage={currentPage} />
       <Pagination currentPage={currentPage} totalPages={totalPages} />
     </div>
   );
